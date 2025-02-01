@@ -1,0 +1,25 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vacancies</title>
+    </head>
+    <body>
+        <h1>Вакансії на роботи</h1>
+        {% for vacancy in all_vacancies %}
+            <h2>{{ vacancy.name }}</h2>
+            <p>Category: {% for category in vacancy.categories.all %}
+                <span>{{ category.name }}</span>
+                {% endfor %}
+            </p>
+            <p>Company: {{ vacancy.company.name }}</p>
+            <img src="{{ vacancy.company.image.url }}" alt="">
+            <p>Description: {{ vacancy.description }}</p>
+            <p>Salary: {{ vacancy.salary }}$ / hour</p>
+        {% endfor %}
+        
+            
+        
+            
+    </body>
+</html>
